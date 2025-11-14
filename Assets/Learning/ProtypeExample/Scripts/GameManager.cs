@@ -84,6 +84,32 @@ namespace Learning.Prototype {
         }
 
         private void Update() {
+            InputHandler();
+
+            if(GameData.showFPS && Time.frameCount % 10 == 0) {
+                //Debug.Log("FPS: " + (1f / Time.deltaTime).ToString("F1"));
+            }
+
+            EnemySpawner();
+
+            if(score >= 5000 && !GameData.gameIsOver) {
+                Victory();
+            }
+        }
+        private void EnemySpawner()
+        {
+            if(!GameData.gameIsOver && !GameData.gameIsPaused && Time.time > nextSpawn && enemies.Count < GameData.numMaxEnemies) {
+                nextSpawn = Time.time + Random.Range(1f, 3f);
+                int r = Random.Range(0, spawnPoints.Length);
+                Enemy enemy = Instantiate(enemyPrefab, spawnPoints[r].position, Quaternion.identity);
+                enemies.Add(enemy);
+                enemy.transform.position = new Vector3(enemy.transform.position.x + Random.Range(1f, 3f), enemy.transform.position.y, enemy.transform.position.z + Random.Range(1f, 3f));
+                enemy.transform.LookAt(player.transform);
+                StartMovingTowardsPlayer(enemy);
+            }
+        }
+        private void InputHandler()
+        {
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 if(GameData.gameIsPaused) {
                     UnPause();
@@ -111,27 +137,9 @@ namespace Learning.Prototype {
                 PlayerShoot();
             }
 
-            if(GameData.showFPS && Time.frameCount % 10 == 0) {
-                //Debug.Log("FPS: " + (1f / Time.deltaTime).ToString("F1"));
-            }
-
-            if(!GameData.gameIsOver && !GameData.gameIsPaused && Time.time > nextSpawn && enemies.Count < GameData.numMaxEnemies) {
-                nextSpawn = Time.time + Random.Range(1f, 3f);
-                int r = Random.Range(0, spawnPoints.Length);
-                Enemy enemy = Instantiate(enemyPrefab, spawnPoints[r].position, Quaternion.identity);
-                enemies.Add(enemy);
-                enemy.transform.position = new Vector3(enemy.transform.position.x + Random.Range(1f, 3f), enemy.transform.position.y, enemy.transform.position.z + Random.Range(1f, 3f));
-                enemy.transform.LookAt(player.transform);
-                StartMovingTowardsPlayer(enemy);
-            }
-
             if(!GameData.gameIsPaused && !GameData.playerIsDead) {
                 float mx = Input.GetAxis("Mouse X") * mouseSensitivity;
                 float my = Input.GetAxis("Mouse Y") * mouseSensitivity;
-            }
-
-            if(score >= 5000 && !GameData.gameIsOver) {
-                Victory();
             }
         }
         private void StartMovingTowardsPlayer(Enemy enemy) {
