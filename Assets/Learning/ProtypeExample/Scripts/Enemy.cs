@@ -22,9 +22,12 @@ namespace Learning.Prototype {
         private void OnCollisionEnter(Collision other) {
             if(other.gameObject.CompareTag("Player")) {
                 Debug.Log("Enemy collided with Player!");
-                GameManager.PlayerHealth -= 1;
+                GameData.playerHealth -= 10;
+
+                //minus score
 
                 Destroy(gameObject);
+
             }
         }
     }

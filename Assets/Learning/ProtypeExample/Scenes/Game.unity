@@ -372,9 +372,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2053228657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &275568245 stripped
+--- !u!114 &268419792 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6878105311483288037, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6847470909277624013, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
   m_PrefabInstance: {fileID: 1241275101}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1109,17 +1109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &732112156 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6878105311483288037, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
-  m_PrefabInstance: {fileID: 363479879}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &732755865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1570,7 @@ Transform:
   m_GameObject: {fileID: 1091378590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.3, y: 1.744, z: 20.57}
+  m_LocalPosition: {x: 0.26, y: 1.744, z: 20.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1692,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2602763686484422393, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.7000122
+      value: -3.6999512
       objectReference: {fileID: 0}
     - target: {fileID: 2602763686484422393, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1853,6 +1842,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1308917446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6847470909277624013, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
+  m_PrefabInstance: {fileID: 196194718670673978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1323167945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2117,6 +2117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1631711100}
   - component: {fileID: 1631711101}
+  - component: {fileID: 1631711102}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2151,30 +2152,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1269655b919b0b14daaa85e812a62663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: fg.2025.prototype::GameManager
-  cameraControl: {fileID: 1980595386}
-  player: {fileID: 1708594481}
-  enemyPrefab: {fileID: -4867999944586841285, guid: 58abe47800503da4596ffc4733ca25ff, type: 3}
-  bulletPrefab: {fileID: 5839397040550042045, guid: 50efa4966ad409144b86447db845010f, type: 3}
-  explosionPrefab: {fileID: 0}
-  jumpSound: {fileID: 0}
-  shootSound: {fileID: 0}
-  dieSound: {fileID: 0}
-  musicSource: {fileID: 0}
-  scoreText: {fileID: 275568245}
-  livesText: {fileID: 196194718670673979}
+--- !u!114 &1631711102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631711099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f86093eacf4dd691772e5fd3ac6526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: fg.2025.prototype::Learning.Prototype.UiManager
+  scoreText: {fileID: 268419792}
+  livesText: {fileID: 1308917446}
   weaponText: {fileID: 663770860}
   ammoText: {fileID: 1323167947}
-  highScoreText: {fileID: 732112156}
-  volumeSlider: {fileID: 0}
-  pausePanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
-  victoryPanel: {fileID: 0}
-  spawnPoints:
-  - {fileID: 244495314}
-  - {fileID: 2059716274}
-  - {fileID: 752667847}
-  - {fileID: 1091378591}
-  enemies: []
+  highScoreText: {fileID: 1708802662}
 --- !u!1 &1631899677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,6 +2391,57 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1706638325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706638327}
+  - component: {fileID: 1706638326}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1706638326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706638325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e1729e3268486c933a93355c3791ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: fg.2025.prototype::Learning.Prototype.SpawnManager
+  player: {fileID: 1708594481}
+  enemyPrefab: {fileID: -4867999944586841285, guid: 58abe47800503da4596ffc4733ca25ff, type: 3}
+  spawnPoints:
+  - {fileID: 244495314}
+  - {fileID: 2059716274}
+  - {fileID: 752667847}
+  - {fileID: 1091378591}
+--- !u!4 &1706638327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706638325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 675.0569, y: 0, z: 571.55084}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1708594481 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8648578235378176875, guid: fbcdc2bead69ab24bb33980ab93dfc23, type: 3}
@@ -2408,6 +2453,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9739e0043665bcd4594a40b84df2f333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: fg.2025.prototype::Player
+--- !u!114 &1708594488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2661415858913729534, guid: fbcdc2bead69ab24bb33980ab93dfc23, type: 3}
+  m_PrefabInstance: {fileID: 6368745941671475833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c927bb8178a0479ea26b5039517d3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: fg.2025.prototype::Learning.Prototype.WeaponSystem
+--- !u!114 &1708802662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6847470909277624013, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
+  m_PrefabInstance: {fileID: 363479879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1712031985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,7 +3335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2602763686484422393, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000011444092
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 2602763686484422393, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3291,17 +3358,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
---- !u!114 &196194718670673979 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6878105311483288037, guid: 5a5e1bba4e81c6643848a1c67a17cb01, type: 3}
-  m_PrefabInstance: {fileID: 196194718670673978}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &6368745941671475833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3318,6 +3374,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5936092122389172270, guid: fbcdc2bead69ab24bb33980ab93dfc23, type: 3}
+      propertyPath: weaponSystem
+      value: 
+      objectReference: {fileID: 1708594488}
+    - target: {fileID: 5936092122389172270, guid: fbcdc2bead69ab24bb33980ab93dfc23, type: 3}
+      propertyPath: cameraControl
+      value: 
+      objectReference: {fileID: 1980595386}
     - target: {fileID: 8029484015566346952, guid: fbcdc2bead69ab24bb33980ab93dfc23, type: 3}
       propertyPath: m_Type
       value: 1
@@ -3382,4 +3446,5 @@ SceneRoots:
   - {fileID: 992900169}
   - {fileID: 1005027113}
   - {fileID: 1994986771}
+  - {fileID: 1706638327}
   - {fileID: 2053228657}
