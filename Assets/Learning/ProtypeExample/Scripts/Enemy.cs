@@ -23,6 +23,7 @@ namespace Learning.Prototype {
             if(other.gameObject.CompareTag("Player")) {
                 Debug.Log("Enemy collided with Player!");
                 GameManager.PlayerHealth -= 1;
+
                 Destroy(gameObject);
             }
         }
