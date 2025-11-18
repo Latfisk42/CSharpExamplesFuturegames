@@ -16,7 +16,9 @@ namespace Learning.Prototype {
         public event Action<int> OnAmmoChanged;
 
         private static Weapons currentWeapon = Weapons.Pistol;
-
+        private void Start() {
+            ChangeWeapon(1);
+        }
 
         private static readonly Dictionary<Weapons, int> ammoDict = new() {
             { Weapons.None, 0 },
@@ -25,7 +27,8 @@ namespace Learning.Prototype {
             { Weapons.RocketLauncher, 5 }
         };
 
-        private Queue<Bullet> activeBullets;
+        //private Queue<Bullet> activeBullets;
+
         public Player player;
         public GameObject bulletPrefab;
 
