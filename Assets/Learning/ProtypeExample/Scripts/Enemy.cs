@@ -2,8 +2,15 @@ using System;
 using UnityEngine;
 
 namespace Learning.Prototype {
-    public class Enemy : MonoBehaviour {
+    public class Enemy : MonoBehaviour, IDamageable {
+
+        public float CurrentHealth => currentHealth;
+        public float HealthPercent => currentHealth / maxHealth;
+
         const float speed = 2f;
+
+        private float maxHealth = 100f;
+        private float currentHealth;
         private Transform playerTransform;
         private bool shouldMove;
         public void StartMovingTowards(Transform plTransform) {
@@ -19,16 +26,20 @@ namespace Learning.Prototype {
             transform.position += direction * speed * Time.deltaTime;
         }
 
-        private void OnCollisionEnter(Collision other) {
-            if(other.gameObject.CompareTag("Player")) {
-                Debug.Log("Enemy collided with Player!");
-                GameData.playerHealth -= 10;
+        private void OnTriggerEnter(Collider other) {
 
-                //minus score
+            if(other.gameObject.CompareTag("Player")) {
+                if(other.TryGetComponent<IDamageable>(out var damageable)) {
+                    damageable.TakeDamage(20f);
+                }
 
                 Destroy(gameObject);
 
             }
+        }
+        public void TakeDamage(float damage) {
+            //Add score
+            Destroy(gameObject);
         }
     }
 }

@@ -12,13 +12,14 @@ namespace Learning.Prototype {
             transform.position += transform.forward * speed * Time.deltaTime;
         }
 
-        private void OnCollisionEnter(Collision other) {
+        private void OnTriggerEnter (Collider other)
+        {
             if(other.gameObject.CompareTag("Enemy")) {
-                Debug.Log("Bullet hit Enemy!");
-                //Add score - call onDeath function in enemy
-                Destroy(other.gameObject);
-                Destroy(gameObject);
+                if(other.TryGetComponent<IDamageable>(out var damageable)) {
+                    damageable.TakeDamage(20f);
+                }
             }
+            Destroy(gameObject);
         }
     }
 }

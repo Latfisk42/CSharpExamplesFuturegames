@@ -6,55 +6,41 @@ public class Player : MonoBehaviour {
 
     public Image healthBar;
 
-
     public static bool godMode = false;
     public record PlayerInfo(string Name, int Level, float Health, int HighScore);
 
     private static int lives = 3;
     private static int level = 1;
     private PlayerInfo playerRecord;
-
+    private PlayerHealth playerHealth;
 
 
 
     private void Awake() {
         lives = GameData.playerLives;
         level = GameData.currentLevel;
+        playerHealth = GetComponent<PlayerHealth>();
+        float health = playerHealth.HealthPercent;
+        playerHealth.OnHealthChanged += UpdateHealthbar;
+        playerHealth.OnDeath += Kill;
 
-        playerRecord = new PlayerInfo("Player", level, GameData.playerHealth, UiManager.highScore);
+
+        playerRecord = new PlayerInfo("Player", level, health, PlayerPrefs.GetInt("HighScore", 0));
         Debug.Log("Starting Player Info: " + playerRecord);
     }
 
-    private void Update() {
-        Debug.Log(PlayerHealth);
+
+    public void UpdateHealthbar(float healthPercent) {
+
+        healthBar.fillAmount = healthPercent;
     }
 
-    public static float PlayerHealth {
-        get => GameData.playerHealth;
-        set => GameData.playerHealth = (int)value;
-    }
-
-
-    public void DamagePlayer(float dmg) {
-        if(godMode) {
-            return;
-
-        }
-        PlayerHealth -= dmg;
-        healthBar.fillAmount -= GetDamagePercent(dmg);
-        if(GameData.playerHealth <= 0) {
-            KillPlayer();
-        }
-    }
-    private float GetDamagePercent(float dmg) {
-        return dmg / 1f;
-    }
-
-    private void KillPlayer() {
-        GameData.playerIsDead = true;
+    private void Kill() {
         lives--;
+        GameData.playerIsDead = true;
+        Debug.Log($"Player died. Lives remaining: {lives}");
         if(lives <= 0) {
-           GameOver();
+            GameOver();
         }
         else {
             Invoke("RespawnPlayer", 2f);
@@ -62,16 +48,19 @@ public class Player : MonoBehaviour {
     }
 
     private void RespawnPlayer() {
-        healthBar.fillAmount = 1f;
-        GameData.playerHealth = 100;
+        playerHealth.currentHealth = 100;
         GameData.playerIsDead = false;
-        //RefreshUI();
+        UpdateHealthbar(1f);
     }
 
     private void GameOver() {
         GameData.gameIsOver = true;
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+    }
+    private void OnDestroy() {
+        playerHealth.OnHealthChanged -= UpdateHealthbar;
+        playerHealth.OnDeath -= Kill;
     }
 
 }

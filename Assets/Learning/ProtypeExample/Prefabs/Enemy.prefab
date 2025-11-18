@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 5609307199334239803}
   - component: {fileID: 2711784200342220389}
   - component: {fileID: -4867999944586841285}
+  - component: {fileID: 5123448188333709300}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -469,6 +470,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e37fd7b3417564aaa8f5823e90014f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: fg.2025.prototype::Enemy
+--- !u!135 &5123448188333709300
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702320219051161426}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.43
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6891877963302496679
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,12 +668,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1

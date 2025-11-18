@@ -6,11 +6,9 @@ using Object = UnityEngine.Object;
 namespace Learning.Prototype {
     public class InputManager : MonoBehaviour {
 
-
+        public int i;
         public static float mouseSensitivity = 2f;
         public WeaponSystem weaponSystem;
-        private GameManager gameManager;
-        public CameraControl cameraControl;
 
         private void Update() {
             InputHandler();
@@ -28,8 +26,8 @@ namespace Learning.Prototype {
             }
 
             if(Input.GetKeyDown(KeyCode.Alpha1)) {
-                // godMode = !godMode;
-                // Debug.Log("GodMode " + godMode);
+                GameData.godMode = !GameData.godMode;
+                Debug.Log("GodMode " + GameData.godMode);
             }
 
             if(Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -40,6 +38,9 @@ namespace Learning.Prototype {
 
             if(Input.GetKeyDown(KeyCode.E)) {
                 weaponSystem.PlayerShoot();
+            }
+            if(Input.GetKeyDown(KeyCode.F)) {
+                weaponSystem.ChangeWeapon(i++);
             }
 
             if(!GameData.gameIsPaused && !GameData.playerIsDead) {
