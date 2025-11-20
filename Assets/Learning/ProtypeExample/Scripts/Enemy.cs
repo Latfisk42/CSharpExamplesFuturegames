@@ -27,15 +27,11 @@ namespace Learning.Prototype {
         }
 
         private void OnTriggerEnter(Collider other) {
-
-            if(other.gameObject.CompareTag("Player")) {
                 if(other.TryGetComponent<IDamageable>(out var damageable)) {
                     damageable.TakeDamage(20f);
+                    Destroy(gameObject);
                 }
 
-                Destroy(gameObject);
-
-            }
         }
         public void TakeDamage(float damage) {
             //Add score
