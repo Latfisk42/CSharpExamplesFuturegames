@@ -1,15 +1,14 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Learning.Prototype {
-    public class CameraControl : MonoBehaviour {
-        public float moveSpeed = 5f;
-        public float lookSpeed = 2f;
-        public Camera camera;
+    public class CameraControl : MonoBehaviour, ICameraControl {
 
-        public Camera CurrentCamera { get; set; }
-
-
+        [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private float lookSpeed = 2f;
+        [SerializeField] private Camera camera;
+        
+        public Camera CameraRef => camera;
+        public float MoveSpeed => moveSpeed;
+        public float LookSpeed => lookSpeed;
     }
 }

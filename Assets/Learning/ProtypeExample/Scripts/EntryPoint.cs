@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Learning.Prototype {
     public class EntryPoint: MonoBehaviour {
