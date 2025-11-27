@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Serialization.Save {
@@ -12,10 +13,34 @@ namespace Serialization.Save {
         public override void OnInspectorGUI() {
             DrawDefaultInspector();
             PlayerDataSo playerDataSo = (PlayerDataSo)target;
-            if(GUILayout.Button("Save")) {
-                SaveSystem.Save(playerDataSo.playerData);
+            GUILayout.Space(10);
+            if(GUILayout.Button("Save SO Asset")) {
+                UnityEditor.AssetDatabase.SaveAssets(); //this saves the ScriptableObject asset
+            }
+            GUILayout.Space(20);
+            if(GUILayout.Button("Save Data")) {
+                SaveSystem.Save(playerDataSo.playerData); // this saves the PlayerData in a file
+            }
+            GUILayout.Space(10);
+            if(GUILayout.Button("Load Data")) {
+                playerDataSo.playerData = SaveSystem.Load<PlayerData>();
+            }
+            if(GUILayout.Button("Load")) {
+                try {
+                    playerDataSo.playerData = SaveSystem.Load<PlayerData>();
+                }
+                catch(Exception e) {
+                    Debug.Log(e);
+                    playerDataSo.playerData = new PlayerData();
+                }
+
+                EnemyData enemyData = SaveSystem.Load<EnemyData>();
+                //do something with enemydata
+            }
+            if(GUILayout.Button("Save SO asset only")) {
+                UnityEditor.AssetDatabase.SaveAssets();
             }
         }
-    }
 #endif
+    }
 }
