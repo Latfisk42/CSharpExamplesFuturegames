@@ -1,12 +1,9 @@
 {
-    "name": "fg.2025",
+    "name": "fg.2025.prototype",
     "rootNamespace": "",
     "references": [
         "Unity.InputSystem",
-        "Unity.TextMeshPro",
-        "com.intothedev.savesystem",
-        "Unity.Addressables",
-        "Unity.ResourceManager"
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -13,7 +13,7 @@ namespace Serialization.Save {
                 health = 100f
             };
 
-            currentData = SaveSystem.Load<PlayerData>() ?? playerData;
+            currentData = SaveSystem.Load() ?? playerData;
         }
 
         private void Update() {

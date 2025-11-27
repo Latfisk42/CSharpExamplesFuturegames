@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 public interface IAudioService {
     void PlaySound(string soundId);
@@ -8,26 +7,12 @@ public interface IAudioService {
 
 public class UnityAudioService : IAudioService {
     private readonly AudioSource audioSource;
-    private AsyncOperationHandle<AudioClip> handle;
-
     public UnityAudioService(AudioSource audioSource) {
         this.audioSource = audioSource;
     }
-    public void PlaySound(string soundId) {
-        handle = Addressables.LoadAssetAsync<AudioClip>($"Sounds/{soundId}");
-        handle.Completed += PlayClip;
-
-    }
-    private void PlayClip(AsyncOperationHandle<AudioClip> clip) {
-        audioSource.clip = clip.Result;
+    public void PlaySound(string soundId)  {
+        audioSource.clip = Addressables.LoadAssetAsync<AudioClip>($"Sounds/{soundId}").WaitForCompletion();
         audioSource.Play();
-    }
-
-    public void OnDispose() {
-        if(!audioSource.isPlaying) {
-            handle.Release();
-            Resources.UnloadUnusedAssets();
-        }
     }
 }
 

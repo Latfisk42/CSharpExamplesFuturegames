@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: fg.2025::Serialization.Save.PlayerDataSo
   playerData:
     playerName: John Doe
-    level: 85
+    level: 0
     health: 100
-    indexList: []
