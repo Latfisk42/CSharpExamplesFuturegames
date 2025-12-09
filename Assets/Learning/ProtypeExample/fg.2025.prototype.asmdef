@@ -1,8 +1,9 @@
 {
-    "name": "fg.2025.prototype",
+    "name": "fg.2025.advanced",
     "rootNamespace": "",
     "references": [
         "Unity.InputSystem",
+        "com.intothedev.savesystem",
         "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
