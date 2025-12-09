@@ -36,6 +36,7 @@ public class EntryPoint {
 
     public void FixedUpdate() { }
     public void OnDisable() { }
+
     public void OnDestroy() {
         uiMenuHandler.OnDispose();
     }
